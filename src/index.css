@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+/* Custom dark variant */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-border: #e5e5e5;
+  --color-bg:#fff;
+  --color-text: #323232;
+  --color-textp: #aaa;
+  --color-main :#f8f7fa;
+   --color-primary:#D6A56D ;
+}
+ 
+.dark {
+  --color-border: #262626;
+  --color-bg: #1d1e1f;
+  --color-text: #ffffff;
+  --color-textp: #ffffff;
+  --color-main:black;
+ --color-primary: #D6A56D;
+}
+
+ 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
+}
+.scroll-fade::after{
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 40px;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.06));
+}
+
+/* Disable Recharts chart focus outline completely */
+.recharts-wrapper:focus,
+.recharts-wrapper *:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+
+
