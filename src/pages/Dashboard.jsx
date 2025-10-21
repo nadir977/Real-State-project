@@ -13,8 +13,8 @@ import { actions } from "../assets/data/data";
 const Dashboard = () => {
   return (
     <Container>
-      <div>
-        <h1 className="text-[min(10vw,28px)] font-[600] leading-[20px] py-4 ">
+      <div className="mt-4 mb-8">
+        <h1 className="text-[min(10vw,28px)] font-[600] leading-[20px] py-2 ">
           Dashboard
         </h1>
         <p className="text-[12px] font-[500] leading-[18px] text-textp">

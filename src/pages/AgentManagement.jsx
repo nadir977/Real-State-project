@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "../structure/Container";
 import { Eye } from "lucide-react";
 import { agents } from "../assets/data/data";
+import { IoIosSearch } from "react-icons/io";
+import CustomDropDown from "../components/CustomDropDown";
 
 const AgentManagement = () => {
+  const [selectedExperie, setSelectedExperie] = useState("");
+  const [selectedStatus, setSelectedStatus] = useState("");
+  const [selectedAgent, setSelectedAgent] = useState("");
+
+  const dropdownData = {
+    Experie: [{ name: "Experienced" }, { name: "Fresh" }],
+
+    Status: [
+      { name: "Verified" },
+      { name: "Not Verified" },
+      { name: "Blocked" },
+      { name: "Deleted" },
+    ],
+
+    agents: [{ name: "Newest" }, { name: "Oldest" }],
+  };
+
   const statusColors = {
     Verified: "bg-[#E1F7E3] text-[#22C55E]",
     "Not Verified": "bg-[#FFF8E1] text-[#EAB308]",
@@ -15,11 +34,11 @@ const AgentManagement = () => {
     Experienced: "bg-[#FCD9A9] text-[#A05A00]",
     Fresh: "bg-[#E0E7FF] text-[#4338CA]",
   };
-
+  console.log(selectedAgent);
   return (
     <Container>
-      <div>
-        <h1 className="text-[min(10vw,28px)] font-[600] leading-[20px] py-4">
+      <div className="mt-4 mb-8">
+        <h1 className="text-[min(10vw,28px)] font-[600] leading-[20px] py-2">
           Agent Management
         </h1>
         <p className="text-[12px] font-[500] leading-[18px] text-textp">
@@ -29,31 +48,54 @@ const AgentManagement = () => {
 
       <div className="border mt-8 border-border rounded-lg bg-bg flex flex-col overflow-hidden">
         <div className="flex flex-wrap items-center justify-between border-b border-border bg-bg px-4 py-4 gap-2">
-          <input
-            type="text"
-            placeholder="Search agent by name, email or location"
-            className="px-3 py-[6px] text-[13px] font-[400] border border-border rounded-lg bg-main outline-none focus:ring-1 focus:ring-primary placeholder:text-text w-full md:w-[300px] overflow-hidden leading-[22px]"
-          />
+          <div className="relative w-full md:w-[300px]">
+            <IoIosSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-text text-[18px]" />
+            <input
+              type="text"
+              placeholder="Search agent by name, email or location"
+              className="pl-9 pr-3 py-[8px] text-[13px] font-[400] border border-border rounded-lg bg-main outline-none focus:ring-1 focus:ring-primary placeholder:text-text w-full overflow-hidden leading-[22px]"
+            />
+          </div>
 
-          <div className="flex flex-wrap items-center gap-3">
-            <select className="px-3 py-[6px] text-[13px] font-[400] border border-border rounded-lg bg-main text-text outline-0 cursor-pointer">
-              <option>Newest</option>
-              <option>Oldest</option>
-            </select>
+          <div className="flex flex-wrap items-center gap-2">
+            <div>
+              <CustomDropDown
+                options={dropdownData.agents}
+                selectedOption={selectedAgent}
+                onOptionSelect={(item) => {
+                  setSelectedAgent(item.name);
+                }}
+                isMulti={false}
+                searchabel={false}
+                calsses="w-[140px] rounded-lg py-1"
+              />
+            </div>
 
-            <select className="px-3 py-[6px] text-[13px] border border-border rounded-lg bg-main text-text outline-0">
-              <option>All Status</option>
-              <option>Verified</option>
-              <option>Not Verified</option>
-              <option>Blocked</option>
-              <option>Deleted</option>
-            </select>
+            <div>
+              <CustomDropDown
+                options={dropdownData.Experie}
+                selectedOption={selectedExperie}
+                onOptionSelect={(item) => {
+                  setSelectedExperie(item.name);
+                }}
+                isMulti={false}
+                searchabel={false}
+                calsses="w-[140px] rounded-lg py-1"
+              />
+            </div>
 
-            <select className="px-3 py-[6px] text-[13px] border border-border rounded-lg bg-main text-text outline-0 cursor-pointer">
-              <option>All Agents</option>
-              <option>Experienced</option>
-              <option>Fresh</option>
-            </select>
+            <div>
+              <CustomDropDown
+                options={dropdownData.Status}
+                selectedOption={selectedStatus}
+                onOptionSelect={(item) => {
+                  setSelectedStatus(item.name);
+                }}
+                isMulti={false}
+                searchabel={false}
+                calsses="w-[140px] rounded-lg py-1"
+              />
+            </div>
           </div>
         </div>
 

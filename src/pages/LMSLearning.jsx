@@ -13,9 +13,9 @@ const LMSLearning = () => {
 
   return (
     <Container>
-      <div className="flex justify-between items-start flex-wrap gap-3">
+      <div className="flex justify-between items-start flex-wrap  mb-8 mt-4">
         <div>
-          <h1 className="text-[min(10vw,28px)] font-[600] leading-[20px] py-4">
+          <h1 className="text-[min(10vw,28px)] font-[600] leading-[20px] py-2">
             Learning Management System
           </h1>
           <p className="text-[12px] font-[500] leading-[18px] text-textp">
@@ -23,7 +23,7 @@ const LMSLearning = () => {
           </p>
         </div>
 
-        <button className="flex items-center border border-border py-2 px-4 rounded-lg text-[15px] font-[600] leading-[22px] text-white  bg-primary cursor-pointer w-fit flex-shrink-0 my-4 justify-center ">
+        <button className="flex items-center border border-border py-2 px-4 rounded-lg text-[15px] font-[600] leading-[22px] text-white  bg-primary cursor-pointer w-fit flex-shrink-0  justify-center ">
           <LuPlus className="inline mr-2 w-[16px] h-[16px] " />
           Create Course
         </button>
@@ -43,7 +43,7 @@ const LMSLearning = () => {
               <img
                 src={course.image}
                 alt={course.title}
-                className="w-full h-[160px] object-cover"
+                className="w-full h-[160px] object-cover rounded-t-xl"
               />
 
               <div className="p-4">

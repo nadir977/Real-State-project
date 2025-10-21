@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   LineChart,
   Line,
@@ -9,7 +9,7 @@ import {
   ResponsiveContainer,
   Legend,
 } from "recharts";
-import { ChevronDown } from "lucide-react";
+import CustomDropDown from "./CustomDropDown";
 
 const data = [
   { month: "Jan", Website: 320, Agent: 280, Direct: 200, Meta: 150 },
@@ -27,19 +27,46 @@ const data = [
 ];
 
 const LeadsBySource = () => {
+  const [selectedMonth, setSelectedMonth] = useState("");
+
+  const dropdownData = {
+    months: [
+      { name: "January" },
+      { name: "February" },
+      { name: "March" },
+      { name: "April" },
+      { name: "May" },
+      { name: "June" },
+      { name: "July" },
+      { name: "August" },
+      { name: "September" },
+      { name: "October" },
+      { name: "November" },
+      { name: "December" },
+    ],
+  };
+
   return (
     <div className="bg-bg text-text p-5 rounded-lg flex flex-col border border-border col-span-2">
       <div className="flex justify-between items-center mb-5">
         <h2 className="text-[16px] font-[600] leading-[28px] tracking-wide">
           Leads by Source
         </h2>
-        <button className="flex items-center bg-bg border border-border text-text px-3 py-[6px] rounded-lg text-xs">
-          October
-          <ChevronDown size={14} className="ml-1 text-text" />
-        </button>
+        <div>
+          <CustomDropDown
+            options={dropdownData.months}
+            selectedOption={selectedMonth}
+            onOptionSelect={(item) => {
+              setSelectedMonth(item.name);
+            }}
+            isMulti={false}
+            searchabel={false}
+            calsses="w-[120px] rounded-lg py-1"
+          />
+        </div>
       </div>
 
-      <div className="w-full h-[280px] ">
+      <div className="w-full h-[280px]">
         <ResponsiveContainer>
           <LineChart
             data={data}
@@ -69,7 +96,6 @@ const LeadsBySource = () => {
                 strokeDasharray: "3 3",
               }}
             />
-
             <Legend iconType="circle" verticalAlign="top" height={30} />
             <Line
               type="monotone"

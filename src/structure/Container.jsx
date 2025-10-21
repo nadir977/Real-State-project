@@ -94,7 +94,7 @@ const Container = ({ children }) => {
           )}
         </div>
 
-        <div className="bg-bg h-full">
+        <div className="bg-bg h-full px-3">
           <List>
             {sidebarItems.map((item, index) => {
               const isActive = location.pathname === item.path;
@@ -106,8 +106,8 @@ const Container = ({ children }) => {
                 >
                   <div
                     className={`flex items-center ${
-                      open ? "gap-4" : "gap-10 justify-center"
-                    } mx-3 px-2 pl-3 mb-2 py-2 rounded cursor-pointer duration-300
+                      open ? "gap-4" : "gap-10 justify-center py-2"
+                    } px-3  mb-2 py-1 rounded  duration-300
                     ${
                       isActive
                         ? "bg-primary text-white"
@@ -115,7 +115,7 @@ const Container = ({ children }) => {
                     }`}
                   >
                     <div
-                      className={`text-[20px] transition-colors duration-300 ${
+                      className={`text-[20px]  transition-colors duration-300 cursor-pointer ${
                         isActive
                           ? "text-white"
                           : "text-text group-hover:text-white"
@@ -148,7 +148,7 @@ const Container = ({ children }) => {
 
           <div
             className={`flex items-center duration-300 gap-4 justify-center
-             bg-primary text-white mx-3 px-2 mb-2 py-2 rounded cursor-pointer`}
+             bg-primary text-white  px-2 mb-2 py-2 rounded cursor-pointer`}
           >
             <IoLogOutOutline className="text-white" />
             {open && "Logout"}
