@@ -31,7 +31,7 @@ const Commission = () => {
       { name: "Released" },
       { name: "Awaiting " },
     ],
-     Commission: [
+    Commission: [
       { name: "Received" },
       { name: "Pending" },
       { name: "Released" },
@@ -39,7 +39,6 @@ const Commission = () => {
     ],
   };
 
-  // Sample data for Receiving and Released commissions
   const receivingData = [
     {
       id: 1,
@@ -164,7 +163,7 @@ const Commission = () => {
       status: "Released",
       paymentStatus: "Completed",
     },
-     {
+    {
       id: 9,
       leadAgent: "Ali Khan",
       subAgent: "Maryam Noor",
@@ -194,14 +193,12 @@ const Commission = () => {
       status: "Released",
       paymentStatus: "Completed",
     },
-    
   ];
 
   const tableData = activeTab === "Receiving" ? receivingData : releasedData;
 
   return (
     <Container>
-      {/* Header Section */}
       <div className="flex justify-between items-start flex-wrap gap-3 mt-4 mb-8">
         <div>
           <h1 className="text-[min(10vw,28px)] font-[600] leading-[20px] py-2">
@@ -218,7 +215,6 @@ const Commission = () => {
         </button>
       </div>
 
-      {/* Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
         {CommissionData.map((item, index) => (
           <div
@@ -240,7 +236,6 @@ const Commission = () => {
         ))}
       </div>
 
-      {/* Tabs */}
       <div className="flex items-center gap-4 mt-8 border-b border-border">
         {["Receiving", "Released"].map((tab) => (
           <button
@@ -257,7 +252,6 @@ const Commission = () => {
         ))}
       </div>
 
-      {/* Filters */}
       <div className="flex flex-wrap items-center justify-between border-b border-border bg-bg px-4 py-4 gap-2 mt-2 rounded-t-lg">
         <div className="relative w-full md:w-[300px]">
           <IoIosSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-text text-[18px]" />
@@ -302,7 +296,6 @@ const Commission = () => {
         </div>
       </div>
 
-      {/* Table */}
       <div className="overflow-x-auto border border-border rounded-b-lg">
         <table className="w-full text-left border-collapse">
           <thead className="bg-[#FFF1E2] text-[16px] font-[500] leading-[20px] text-[#323232]">
@@ -391,47 +384,47 @@ const Commission = () => {
           </tbody>
         </table>
         <div className="flex flex-wrap items-center justify-between border-t border-border bg-bg px-4 py-3 text-[13px] font-[400] text-text">
-            <span className="text-gray-500">1–05 of 18 items</span>
+          <span className="text-gray-500">1–05 of 18 items</span>
 
-            <div className="flex items-center pt-2 pb-6">
-              <button className="px-3 py-[6px] text-text hover:bg-primary/20 cursor-pointer rounded-lg mx-1">
-                {"<<"}
-              </button>
-              <button className="px-3 py-[6px] text-text hover:bg-primary/20 cursor-pointer rounded-lg mx-1">
-                {"<"}
-              </button>
-              <button className="px-3 py-[6px] bg-primary text-white rounded-lg mx-1 cursor-pointer">
-                1
-              </button>
-              <button className="px-3 py-[6px] text-text hover:bg-primary/20 cursor-pointer rounded-lg mx-1">
-                2
-              </button>
-              <button className="px-3 py-[6px] text-text hover:bg-primary/20 cursor-pointer rounded-lg mx-1">
-                3
-              </button>
-              <button className="px-3 py-[6px] text-text hover:bg-primary/20 cursor-pointer rounded-lg mx-1">
-                4
-              </button>
-              <button className="px-3 py-[6px] text-text hover:bg-primary/20 cursor-pointer rounded-lg mx-1">
-                5
-              </button>
-              <button className="px-3 py-[6px] text-text hover:bg-primary/20 cursor-pointer rounded-lg mx-1">
-                {">"}
-              </button>
-              <button className="px-3 py-[6px] text-text hover:bg-primary/20 cursor-pointer rounded-lg mx-1">
-                {">>"}
-              </button>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <select className="px-2 py-[4px] bg-bg text-text cursor-pointer outline-none">
-                <option>10</option>
-                <option>15</option>
-                <option>18</option>
-              </select>
-              <span className="text-gray-500">Items per page</span>
-            </div>
+          <div className="flex items-center pt-2 pb-6">
+            <button className="px-3 py-[6px] text-text hover:bg-primary/20 cursor-pointer rounded-lg mx-1">
+              {"<<"}
+            </button>
+            <button className="px-3 py-[6px] text-text hover:bg-primary/20 cursor-pointer rounded-lg mx-1">
+              {"<"}
+            </button>
+            <button className="px-3 py-[6px] bg-primary text-white rounded-lg mx-1 cursor-pointer">
+              1
+            </button>
+            <button className="px-3 py-[6px] text-text hover:bg-primary/20 cursor-pointer rounded-lg mx-1">
+              2
+            </button>
+            <button className="px-3 py-[6px] text-text hover:bg-primary/20 cursor-pointer rounded-lg mx-1">
+              3
+            </button>
+            <button className="px-3 py-[6px] text-text hover:bg-primary/20 cursor-pointer rounded-lg mx-1">
+              4
+            </button>
+            <button className="px-3 py-[6px] text-text hover:bg-primary/20 cursor-pointer rounded-lg mx-1">
+              5
+            </button>
+            <button className="px-3 py-[6px] text-text hover:bg-primary/20 cursor-pointer rounded-lg mx-1">
+              {">"}
+            </button>
+            <button className="px-3 py-[6px] text-text hover:bg-primary/20 cursor-pointer rounded-lg mx-1">
+              {">>"}
+            </button>
           </div>
+
+          <div className="flex items-center gap-2">
+            <select className="px-2 py-[4px] bg-bg text-text cursor-pointer outline-none">
+              <option>10</option>
+              <option>15</option>
+              <option>18</option>
+            </select>
+            <span className="text-gray-500">Items per page</span>
+          </div>
+        </div>
       </div>
     </Container>
   );
